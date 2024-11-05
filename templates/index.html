@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Postpartum Depression Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: blue; /* Set the background color to blue */
+            color: white; /* Change text color to white for better contrast */
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a light background for the form */
+        }
+        .form-container label {
+            margin-top: 10px;
+            display: block;
+        }
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Postpartum Depression Prediction</h2>
+        <form action="/predict" method="post">
+            <label>Feeling sad or Tearful:</label>
+            <select name="Feeling_sad_or_Tearful" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Irritable towards baby & partner:</label>
+            <select name="Irritable_towards_baby_partner" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Trouble sleeping at night:</label>
+            <select name="Trouble_sleeping_at_night" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Problems concentrating or making decision:</label>
+            <select name="Problems_concentrating" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Overeating or loss of appetite:</label>
+            <select name="Overeating_or_loss_of_appetite" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Feeling anxious:</label>
+            <select name="Feeling_anxious" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Feeling of guilt:</label>
+            <select name="Feeling_of_guilt" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Problems of bonding with baby:</label>
+            <select name="Problems_of_bonding_with_baby" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label>Suicide attempt:</label>
+            <select name="Suicide_attempt" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
